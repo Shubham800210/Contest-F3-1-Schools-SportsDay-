@@ -28,8 +28,8 @@ function Race100M(score,LongJump){
     winnerObj[timeArr[1]] = 25;
     // timeArr[0]=50;
     // timeArr[1]=25;
-    console.log(timeArr[0] + " => Winner 100M race and gets 50 points");
-    console.log(timeArr[1] + " => second winner 100M race and gets 25 points");
+    console.log(timeArr[0] + " -> Winner 100M race and gets 50 points");
+    console.log(timeArr[1] + " -> second winner 100M race and gets 25 points");
     score[timeArr[0]] += 50;
     score[timeArr[1]] += 25;
 
@@ -42,7 +42,7 @@ function Race100M(score,LongJump){
 function LongJump(score,HighJump){
   setTimeout(() =>{
 
-    console.log("prev socre: ",score);
+    console.log("previous socre: ",score);
     
 
     const num = Math.floor(Math.random() *4)+1;
@@ -70,30 +70,28 @@ function LongJump(score,HighJump){
 
 function HighJump(score,AwardCeremony){
 
-  console.log("Prev score: ",score);
- 
-
+  console.log("previous score: ",score);
   let colourInput =prompt("Please enter Colour to Highjump ");
-  colourInput = colourInput.toLocaleLowerCase();
+  // colourInput = colourInput.toLocaleLowerCase();
 
-  if(colourInput==null || colourInput==""){
+  if(colourInput==null || colourInput==""|| (!(colourInput.toLocaleLowerCase()=="red") &&  !(colourInput.toLocaleLowerCase()=="green") && !(colourInput.toLocaleLowerCase()=="blue") && !(colourInput.toLocaleLowerCase()=="yellow"))){
 
     console.log("Event was cancelled");
     // AwardCeremony(score);
-    // break;
-  }else if(colourInput=="red"){
+    
+  }else if(colourInput.toLocaleLowerCase()=="red"){
     score.red += 100;
     console.log("Winner of Highjump is Red");
 
-  }else if(colourInput =="blue"){
+  }else if(colourInput.toLocaleLowerCase() =="blue"){
     score.blue += 100;
     console.log("Winner of Highjump is Blue");
-  }else if(colourInput == "green"){
+  }else if(colourInput.toLocaleLowerCase() == "green"){
     score.green += 100;
     console.log("Winner of Highjump of Green");
-  }else if(colourInput == "yellow"){
+  }else if(colourInput.toLocaleLowerCase() == "yellow"){
     score.yellow += 100;
-    console.log("Winner of Highjump of Yellow");
+    console.log("Winner of Highjump of Yellow :", score.yellow);
   }
 
   console.log("Updated score: ", score);
